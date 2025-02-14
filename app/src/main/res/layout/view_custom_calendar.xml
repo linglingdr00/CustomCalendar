@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <!-- top view -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- previous month -->
+        <ImageButton
+            android:id="@+id/prevMonthButton"
+            android:layout_width="@dimen/calendar_item_width"
+            android:layout_height="@dimen/calendar_item_height"
+            android:layout_margin="@dimen/calendar_item_margin"
+            android:src="@drawable/chevron_left"
+            android:backgroundTint="@color/transparent" />
+
+        <!-- year & month text -->
+        <TextView
+            android:id="@+id/yearMonthTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:textSize="@dimen/calendar_item_text_size"
+            tools:text="2025年2月"
+            android:textColor="@color/black"/>
+
+        <!-- next month -->
+        <ImageButton
+            android:id="@+id/nextMonthButton"
+            android:layout_width="@dimen/calendar_item_width"
+            android:layout_height="@dimen/calendar_item_height"
+            android:layout_margin="@dimen/calendar_item_margin"
+            android:src="@drawable/chevron_right"
+            android:backgroundTint="@color/transparent" />
+
+    </LinearLayout>
+
+    <!-- week day titles -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weekRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp" />
+
+    <!-- calendar -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/calendarRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="16dp" />
+
+</LinearLayout>
