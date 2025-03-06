@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.tinatang.customcalendar.R
 import com.tinatang.customcalendar.data.CalendarDay
 import com.tinatang.customcalendar.databinding.CalendarDayItemBinding
+import java.util.Locale
 
 class CalendarAdapter(
     private val days: List<CalendarDay>,
@@ -22,21 +23,21 @@ class CalendarAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(date: CalendarDay, selectedDate: CalendarDay?) {
-            binding.dayTextView.text = date.date.dayOfMonth.toString()
+            binding.dayTextView.text = String.format(Locale.US, date.date.dayOfMonth.toString())
 
             // 使用 selectedDate 來判斷是否選中
             val isSelected = selectedDate?.date == date.date
             binding.dayTextView.isSelected = isSelected
 
-            // 設定選取時的背景
-            if (isSelected) {
-                binding.root.setBackgroundResource(R.drawable.day_background_selected)
-            } else {
-                binding.root.setBackgroundColor(Color.TRANSPARENT)
-            }
-
             // 只有可點選的日期才能點擊
             if (date.enable) {
+                // 設定選取時的背景
+                if (isSelected) {
+                    binding.dayTextView.setBackgroundResource(R.drawable.day_background_selected)
+                } else {
+                    binding.dayTextView.setBackgroundColor(Color.TRANSPARENT)
+                }
+                // 設定日期點擊事件
                 binding.root.setOnClickListener {
                     onDayClick(date)
                 }

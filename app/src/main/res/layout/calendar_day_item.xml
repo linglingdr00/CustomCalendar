@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/day_layout"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@drawable/day_background_unselected">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/day_text_view"
